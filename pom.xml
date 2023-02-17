@@ -80,5 +80,15 @@
 			</plugin>
 		</plugins>
 	</build>
+	 <proxies>
+	    <proxy>
+	      <id>proxy</id>
+	      <active>true</active>
+	      <protocol>http</protocol>
+	      <host>PROXY_HOSTNAME</host>
+	      <port>PROXY_PORT</port>
+	      <nonProxyHosts>NON_PROXY_HOSTS</nonProxyHosts>
+	    </proxy>
+	  </proxies>
 
 </project>
