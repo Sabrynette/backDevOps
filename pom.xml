@@ -78,6 +78,8 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				      <version>3.0.2</version> <!-- or an older version that is compatible with your Maven version -->
+
 			</plugin>
 		</plugins>
 	</build>
