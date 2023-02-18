@@ -74,14 +74,12 @@
 	</dependencies>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				      <version>3.0.2</version> <!-- or an older version that is compatible with your Maven version -->
-
-			</plugin>
-		</plugins>
+	<plugins>
+	    <plugin>
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-resources-plugin</artifactId>
+	      <version>3.0.2</version> <!-- or an older version that is compatible with your Maven version -->
+	    </plugin>
 	</build>
 
 </project>
