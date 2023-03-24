@@ -1,19 +1,31 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout SCM') {
+        stage('GIT') {
             steps {
                 git url: 'https://github.com/Emna123/backDevOps.git', branch: 'develop'
             }
         }
-        stage('Build') {
+        stage('MVN CLEAN') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean'
             }
         }
-        stage('Test') {
+        stage('MVN COMPILE') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage('MVN TEST') {
             steps {
                 sh 'mvn test'
+            }
+        }
+        stage('MVN SONARQUEBE') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh 'mvn sonar:sonar'
+                }
             }
         }
     }
