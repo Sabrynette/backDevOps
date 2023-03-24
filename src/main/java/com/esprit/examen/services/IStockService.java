@@ -16,4 +16,6 @@ public interface IStockService {
 	Stock retrieveStock(Long id);
 
 	String retrieveStatusStock();
+	
+	boolean checkIfStockIsAvailable(Stock stock, int quantity);
 }

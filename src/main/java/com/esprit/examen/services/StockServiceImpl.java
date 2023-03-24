@@ -83,4 +83,9 @@ public class StockServiceImpl implements IStockService {
 		return finalMessage;
 	}
 
+	@Override
+	public boolean checkIfStockIsAvailable(Stock stock, int quantity) {
+	       return stock.getQte() >= quantity;
+	}
+
 }
