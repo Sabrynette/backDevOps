@@ -21,10 +21,10 @@ pipeline {
                 sh 'mvn test'
             }
             post {
-  always {
-    junit 'target/surefire-reports/*.xml'
-  }
-}
+              always {
+                junit '**/target/surefire-reports/TEST-*.xml'
+              }
+            }
 
         }
         stage('MVN SONARQUEBE') {
