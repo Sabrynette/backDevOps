@@ -16,6 +16,16 @@ pipeline {
                 sh 'mvn compile'
             }
         }
+           stage('Build and run Docker Compose') {
+            steps {
+                // Build the Docker images
+                sh 'docker-compose build'
+
+                // Start the Docker containers
+                sh 'docker-compose up -d'
+            }
+        }
+  
         stage('MVN TEST') {
             steps {
                 sh 'mvn test'
