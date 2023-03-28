@@ -19,11 +19,16 @@ pipeline {
         stage('Count test_table') {
             steps {
                 script {
-                    // Copy and paste the script here
+                    // Import the Sql class
                     import groovy.sql.Sql
+
+                    // Load the MySQL JDBC driver
                     Class.forName("com.mysql.jdbc.Driver")
+
+                    // Create a new Sql instance and execute the query
                     def sql = Sql.newInstance("jdbc:mysql://mysql:3306/tpachato", "root","root", "com.mysql.jdbc.Driver")
-                    def rows = sql.execute "select count(*) from test_table;"
+
+                    // Print the results
                     echo rows.dump()
                 }
             }
