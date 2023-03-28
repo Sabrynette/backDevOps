@@ -16,7 +16,20 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-
+stages {
+        stage('Count test_table') {
+            steps {
+                script {
+                    // Copy and paste the script here
+                    import groovy.sql.Sql
+                    Class.forName("com.mysql.jdbc.Driver")
+                    def sql = Sql.newInstance("jdbc:mysql://mysql:3306/test_db", "user","passwd", "com.mysql.jdbc.Driver")
+                    def rows = sql.execute "select count(*) from test_table;"
+                    echo rows.dump()
+                }
+            }
+        }
+    }
         stage('MVN TEST') {
             steps {
                 sh 'mvn test'
