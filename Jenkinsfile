@@ -18,7 +18,7 @@ pipeline {
         }     
         stage('DATABASE') {
             steps {
-               sh 'docker exec -it mk-mysql mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS tpachato;"'
+               sh 'sudo docker exec -it mk-mysql mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS tpachato;"'
             }
         }
         stage('UNIT TEST'){
