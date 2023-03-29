@@ -21,7 +21,7 @@ pipeline {
                 sh 'mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS tpachato;"'
             }
         }
-        stage('UNIT TEST')
+        stage('UNIT TEST'){
             steps {
                 sh 'mvn test'
             }
