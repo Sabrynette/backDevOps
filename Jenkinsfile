@@ -16,11 +16,6 @@ pipeline {
                 sh 'mvn compile'
             }
         }     
-        stage('DATABASE') {
-            steps {
-               sh 'sudo docker exec -it mk-mysql mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS tpachato;"'
-            }
-        }
         stage('UNIT TEST'){
             steps {
                 sh 'mvn test'
