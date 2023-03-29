@@ -15,8 +15,13 @@ pipeline {
             steps {
                 sh 'mvn compile'
             }
+        }     
+        stage('DATABASE') {
+            steps {
+                sh 'mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS tpachato;"'
+            }
         }
-        stage('MVN TEST') {
+        stage('UNIT TEST')
             steps {
                 sh 'mvn test'
             }
@@ -27,7 +32,7 @@ pipeline {
             }
 
         }
-        stage('MVN SONARQUEBE') {
+        stage('SONARQUEBE') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh 'mvn sonar:sonar'
