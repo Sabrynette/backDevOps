@@ -25,11 +25,15 @@ pipeline {
                 junit '**/target/surefire-reports/TEST-*.xml'
               }
             }
-
         }
-     
         
-        
+        stage('SONARQUEBE') {
+          steps {
+               withSonarQubeEnv('SonarQube') {
+                  sh 'mvn sonar:sonar'
+                }
+            }
+        }   
     }
     post {
         failure {
