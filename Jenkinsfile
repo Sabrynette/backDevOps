@@ -27,13 +27,7 @@ pipeline {
             }
 
         }
-        stage('SONARQUEBE') {
-            steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
-                }
-            }
-        }
+     
         
         
     }
